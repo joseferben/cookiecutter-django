@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponseRedirect, HttpResponse
 from django.test import RequestFactory
 from django.urls import reverse
 
@@ -29,8 +29,8 @@ class TestUserUpdateView:
         https://github.com/pytest-dev/pytest-django/pull/258
     """
 
-    def dummy_get_response(self, request: HttpRequest):
-        return None
+    def dummy_get_response(self, request: HttpRequest) -> HttpResponse:
+        return None  # type: ignore
 
     def test_get_success_url(self, user: User, rf: RequestFactory):
         view = UserUpdateView()

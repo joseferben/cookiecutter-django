@@ -18,7 +18,11 @@ Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings
 
 ### Creating .env file
 
-       $ cp .env.sample .env
+    $ cp .env.sample .env
+
+### Fix all templates
+
+    $ make fix
 
 ### Setting Up Your Users
 

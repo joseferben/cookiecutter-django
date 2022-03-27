@@ -30,7 +30,7 @@ check.lint:
 
 .PHONY: check.types
 check.types:
-	pyright .
+	pyright
 
 .PHONY: check
 check: check.lint check.types
@@ -44,19 +44,19 @@ fix:
 
 .PHONY: test
 test:
-	pytest
+	DJANGO_READ_DOT_ENV_FILE=True pytest
 
 .PHONY: shell
 shell:
-	python manage.py shell_plus
+	DJANGO_READ_DOT_ENV_FILE=True python manage.py shell_plus
 
 .PHONY: migrations
 migrations:
-	python manage.py makemigrations
+	DJANGO_READ_DOT_ENV_FILE=True python manage.py makemigrations
 
 .PHONY: migrate
 migrate:
-	python manage.py migrate
+	DJANGO_READ_DOT_ENV_FILE=True python manage.py migrate
 
 .PHONY: run
 run:
@@ -72,7 +72,7 @@ beat:
 
 .PHONY: graph
 graph:
-	python manage.py graph_models -a --pygraphviz --output models.png
+	DJANGO_READ_DOT_ENV_FILE=True python manage.py graph_models -a --pygraphviz --output models.png
 
 .PHONY: docker
 docker:
@@ -81,4 +81,4 @@ docker:
 
 .PHONY: data
 data:
-	python manage.py migrate
+	DJANGO_READ_DOT_ENV_FILE=True python manage.py migrate
