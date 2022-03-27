@@ -10,8 +10,9 @@ from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
 
-{% else %}
+{% else -%}
 import socket
+
 {% endif -%}
 from .base import *  # noqa
 from .base import env
