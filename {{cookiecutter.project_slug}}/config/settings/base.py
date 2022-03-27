@@ -82,6 +82,15 @@ DJANGO_APPS = [
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
+    "health_check",
+    "health_check.db",
+    "health_check.cache",
+    "health_check.storage",
+    "health_check.contrib.migrations",
+    "health_check.contrib.psutil",
+    "health_check.contrib.redis",
+    "health_check.contrib.celery",
+    "health_check.contrib.celery_ping",
     "crispy_forms",
     "crispy_bootstrap5",
     "allauth",
