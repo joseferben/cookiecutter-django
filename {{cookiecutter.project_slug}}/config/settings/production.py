@@ -1,5 +1,3 @@
-from socket import getaddrinfo, gethostname
-
 {% if cookiecutter.use_sentry == 'y' -%}
 import logging
 
@@ -10,6 +8,7 @@ from sentry_sdk.integrations.celery import CeleryIntegration
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
+import socket
 
 {% endif -%}
 from .base import *  # noqa
@@ -21,7 +20,9 @@ from .base import env
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["{{ cookiecutter.domain_name }}"])
-ALLOWED_HOSTS.append(getaddrinfo(gethostname(), "http")[0][4][0])  # noqa F405
+ALLOWED_HOSTS.append(
+    socket.getaddrinfo(socket.gethostname(), "http")[0][4][0]  # noqa F405
+)
 
 # DATABASES
 # ------------------------------------------------------------------------------
