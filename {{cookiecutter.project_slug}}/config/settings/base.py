@@ -89,8 +89,6 @@ THIRD_PARTY_APPS = [
     "health_check.contrib.migrations",
     "health_check.contrib.psutil",
     "health_check.contrib.redis",
-    "health_check.contrib.celery",
-    "health_check.contrib.celery_ping",
     "crispy_forms",
     "crispy_bootstrap5",
     "allauth",
@@ -98,6 +96,8 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
 {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
+    "health_check.contrib.celery",
+    "health_check.contrib.celery_ping",
 {%- endif %}
 {%- if cookiecutter.use_drf == "y" %}
     "rest_framework",
@@ -191,7 +191,7 @@ STATICFILES_FINDERS = [
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APPS_DIR / "media")
+MEDIA_ROOT = "/tmp"
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
 
