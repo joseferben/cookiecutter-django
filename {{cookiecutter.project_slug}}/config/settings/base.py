@@ -4,6 +4,13 @@ Base settings to build other settings files upon.
 from pathlib import Path
 
 import environ
+from django.db import models
+
+# Monkey patching classes for static typing with pyright
+for cls in [models.ForeignKey]:
+    cls.__class_getitem__ = classmethod(  # type: ignore [attr-defined]
+        lambda cls, *args, **kwargs: cls
+    )
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # {{ cookiecutter.project_slug }}/

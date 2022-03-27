@@ -13,9 +13,8 @@ watchgod==0.7  # https://github.com/samuelcolvin/watchgod
 
 # Testing
 # ------------------------------------------------------------------------------
-mypy==0.931  # https://github.com/python/mypy
-django-stubs==1.9.0  # https://github.com/typeddjango/django-stubs
-pytest==7.0.1  # https://github.com/pytest-dev/pytest
+django-types==0.15.0 # https://github.com/sbdchd/django-types
+pyright==1.1.232 # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
 djangorestframework-stubs==1.4.0  # https://github.com/typeddjango/djangorestframework-stubs
@@ -36,7 +35,9 @@ pylint-django==2.5.2  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
 pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 {%- endif %}
-pre-commit==2.17.0  # https://github.com/pre-commit/pre-commit
+djhtml==1.5.0 # https://github.com/rtts/djhtml
+isort==5.10.1 # https://pycqa.github.io/isort/
+autoflake==1.4 # https://pypi.org/project/autoflake/
 
 # Django
 # ------------------------------------------------------------------------------
