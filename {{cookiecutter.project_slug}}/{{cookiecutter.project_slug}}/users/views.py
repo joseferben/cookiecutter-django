@@ -27,7 +27,7 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_success_url(self):
         assert (
             self.request.user.is_authenticated
-        )  # for mypy to know that the user is authenticated
+        )  # for pyright to know that the user is authenticated
         return self.request.user.get_absolute_url()  # type: ignore
 
     def get_object(self):
