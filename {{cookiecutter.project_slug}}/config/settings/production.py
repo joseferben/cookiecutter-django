@@ -129,6 +129,7 @@ MEDIA_URL = f"https://{aws_s3_domain}/media/"
 DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaRootGoogleCloudStorage"
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
 {%- endif %}
+MEDIA_ROOT = "/storage"
 
 # EMAIL
 # ------------------------------------------------------------------------------
