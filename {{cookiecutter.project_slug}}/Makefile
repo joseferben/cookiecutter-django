@@ -25,8 +25,7 @@ help:
 
 .PHONY: check.lint
 check.lint:
-	flake8 . --count --show-source --statistics
-	djhtml {{ cookiecutter.project_slug }}/templates/**/*.html -c -t 2
+	pre-commit run --show-diff-on-failure -a
 
 .PHONY: check.types
 check.types:
