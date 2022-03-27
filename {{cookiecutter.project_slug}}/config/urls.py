@@ -23,7 +23,7 @@ urlpatterns = [
     path("users/", include("{{ cookiecutter.project_slug }}.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path('ht/', include('health_check.urls'))
+    path('ht/', include('health_check.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 {%- if cookiecutter.use_async == 'y' %}
 if settings.DEBUG:
