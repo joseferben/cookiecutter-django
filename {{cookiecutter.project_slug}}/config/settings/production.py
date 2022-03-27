@@ -1,5 +1,6 @@
 {% if cookiecutter.use_sentry == 'y' -%}
 import logging
+import socket
 
 import sentry_sdk
 {%- if cookiecutter.use_celery == 'y' %}
@@ -8,8 +9,9 @@ from sentry_sdk.integrations.celery import CeleryIntegration
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
-import socket
 
+{% else %}
+import socket
 {% endif -%}
 from .base import *  # noqa
 from .base import env
